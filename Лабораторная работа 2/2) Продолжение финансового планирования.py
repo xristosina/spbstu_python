@@ -5,11 +5,10 @@ increase = 0.03  # Ежемесячный рост цен
 
 # TODO Рассчитайте подушку безопасности, чтобы протянуть 10 месяцев без долгов
 money_capital = 0  # Изначальная подушка безопасности (рубли)
-months_to_survive = months
-while months_to_survive > 0:
+for i in range(months):
     money_capital -= salary  # Пополнение подушки безопасности
     money_capital += spend  # Вычет расходов из подушки безопасности
     spend += spend * increase  # Увеличение расходов на 3%
-    months_to_survive -= 1  # Уменьшение счетчика месяцев
+    i -= 1  # Уменьшение счетчика месяцев
 
 print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", int(money_capital))
